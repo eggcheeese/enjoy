@@ -4,16 +4,16 @@ FROM node:lts-alpine
 WORKDIR /app
 
 # copy both 'package.json' and 'package-lock.json' (if available)
-ADD package*.json ./
+COPY package*.json ./
 
 # install project dependencies
 RUN npm install
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-ADD . .
+COPY . .
 
-# build app for production with minification
-RUN npm run build
+# install http-server globally
+RUN npm install -g http-server
 
-# EXPOSE 8080
-# CMD [ "http-server", "dist" ]
+# build and serve the app for production
+CMD ["npm", "run", "serve"]
