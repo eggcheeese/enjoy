@@ -88,9 +88,9 @@ h2,h3 {
    z-index: 99;
 }
 
-.info .text {
+/* .info .text {
   z-index: 99;
-}
+} */
 body {
   display: flex;
   flex-direction: column;
